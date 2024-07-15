@@ -8,35 +8,39 @@ import Equipo from './componentes/Equipo';
 import Footer from './componentes/Footer';
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(true);
+  const [mostrarFormulario, actualizarMostrar] = useState(false);
   const [colaboradores, actualizarColaboradores] = useState([
   {
     id: uuidv4(),
     equipo: "Data Science",
     foto: "https://github.com/s3codecL.png",
     nombre: "Gustavo Andrade",
-    puesto: "Development Operations"
+    puesto: "Development Operations",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Data Science",
     foto: "https://github.com/jonatanmelinao.png",
     nombre: "Jonatan Melinao",
-    puesto: "Data Science"
+    puesto: "Data Science",
+    fav: false
   },
   {
     id: uuidv4(),
     equipo: "Desarrollo",
     foto: "https://github.com/s3codecL.png",
     nombre: "Gustavo Andrade",
-    puesto: "Development Operations"
+    puesto: "Development Operations",
+    fav: false
   },
   {
     id: uuidv4(),
     equipo: "Finanzas",
     foto: "https://github.com/jonatanmelinao.png",
     nombre: "Jonatan Melinao",
-    puesto: "Data Science"
+    puesto: "Data Science",
+    fav: false
   }
 ])
 
@@ -128,6 +132,19 @@ const crearEquipo = (nuevoEquipo) => {
   actualizarEquipos([...equipos, {...nuevoEquipo, id: uuidv4()}])
 }
 
+// Like
+const like = (id) => {
+  console.log("Like", id)
+  const colaboradoresActualizados = colaboradores.map((colaborador) => {
+    if (colaborador.id === id) {
+      colaborador.fav = !colaborador.fav
+    }
+    return colaborador  
+  })
+
+  actualizarColaboradores(colaboradoresActualizados)
+}
+
   return (
     <div>
       <Header />
@@ -149,6 +166,7 @@ const crearEquipo = (nuevoEquipo) => {
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like={like}
         />
         )
       }
