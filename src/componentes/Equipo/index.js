@@ -22,7 +22,7 @@ const Equipo = (props) => {
                     className="input-color"
                     value={colorPrimario}
                     onChange={(evento) => {
-                        actualizarColor(evento.target.value, titulo)
+                        actualizarColor(evento.target.value, id)
                     }}
                 />
                 <h3 style={estiloTitulo} >{titulo}</h3>
