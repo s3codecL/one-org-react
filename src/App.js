@@ -122,6 +122,12 @@ const actualizarColor = (color, id) => {
   actualizarEquipos(equiposActualizados)
 }
 
+// Crear equipo
+const crearEquipo = (nuevoEquipo) => {
+  console.log(nuevoEquipo)
+  actualizarEquipos([...equipos, {...nuevoEquipo, id: uuidv4()}])
+}
+
   return (
     <div>
       <Header />
@@ -130,6 +136,7 @@ const actualizarColor = (color, id) => {
         mostrarFormulario && <Formulario
           equipos={equipos.map((equipo) => equipo.titulo)}
           registrarColaborador={registrarColaborador}
+          crearEquipo={crearEquipo}
         />
       }
 
