@@ -12,7 +12,7 @@ function App() {
   const [colaboradores, actualizarColaboradores] = useState([
   {
     id: uuidv4(),
-    equipo: "Data Science",
+    equipo: "Directiva",
     foto: "https://github.com/s3codecL.png",
     nombre: "Gustavo Andrade",
     puesto: "Development Operations",
@@ -20,7 +20,7 @@ function App() {
   },
   {
     id: uuidv4(),
-    equipo: "Data Science",
+    equipo: "Directiva",
     foto: "https://github.com/jonatanmelinao.png",
     nombre: "Jonatan Melinao",
     puesto: "Data Science",
@@ -29,17 +29,17 @@ function App() {
   {
     id: uuidv4(),
     equipo: "Desarrollo",
-    foto: "https://github.com/s3codecL.png",
-    nombre: "Gustavo Andrade",
-    puesto: "Development Operations",
+    foto: "https://github.com/FelipeGonzalezValderrama.png",
+    nombre: "Felipe Gonzalez",
+    puesto: "Full Stack Developer",
     fav: false
   },
   {
     id: uuidv4(),
-    equipo: "Finanzas",
-    foto: "https://github.com/jonatanmelinao.png",
-    nombre: "Jonatan Melinao",
-    puesto: "Data Science",
+    equipo: "DevOps",
+    foto: "https://github.com/carlos-farias.png",
+    nombre: "Ccarlos Farias",
+    puesto: "DevOps Engineer",
     fav: false
   }
 ])
