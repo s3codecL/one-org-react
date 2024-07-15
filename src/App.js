@@ -20,6 +20,18 @@ function App() {
     foto: "https://github.com/jonatanmelinao.png",
     nombre: "Jonatan Melinao",
     puesto: "Data Science"
+  },
+  {
+    equipo: "Desarrollo",
+    foto: "https://github.com/s3codecL.png",
+    nombre: "Gustavo Andrade",
+    puesto: "Development Operations"
+  },
+  {
+    equipo: "Finanzas",
+    foto: "https://github.com/jonatanmelinao.png",
+    nombre: "Jonatan Melinao",
+    puesto: "Data Science"
   }
 ])
 
@@ -38,6 +50,11 @@ function App() {
     actualizarColaboradores([...colaboradores, colaborador])
   }
 
+// Eliminar colaborador
+const eliminarColaborador = (nombre) => {
+  console.log("Eliminar colaborador", nombre)
+  //Filter
+}
 
   //Lista de equipos
   const equipos = [
@@ -95,6 +112,7 @@ function App() {
           datos={equipo}
           key={equipo.titulo}
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+          eliminarColaborador={eliminarColaborador}
         />
         )
       }
