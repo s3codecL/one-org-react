@@ -35,6 +35,44 @@ function App() {
   }
 ])
 
+const [equipos, actualizarEquipos] = useState([
+  {
+    titulo: "Desarrollo",
+    colorPrimario: "#57C278",
+    colorSecundario: "#D9F7E9"
+  },
+  {
+    titulo: "Operaciones",
+    colorPrimario: "#82CFFA",
+    colorSecundario: "#E8F8FF"
+  },
+  {
+    titulo: "DevOps",
+    colorPrimario: "#E06B69",
+    colorSecundario: "#FDE7E8"
+  },
+  {
+    titulo: "Data Science",
+    colorPrimario: "#A6D157",
+    colorSecundario: "#F0F8E2"
+  },
+  {
+    titulo: "Legal",
+    colorPrimario: "#DB6EBF",
+    colorSecundario: "#FAE9F5"
+  },
+  {
+    titulo: "Finanzas",
+    colorPrimario: "#FFBA05",
+    colorSecundario: "#FFF5D9"
+  },
+  {
+    titulo: "Directiva",
+    colorPrimario: "#FF8A29",
+    colorSecundario: "#FFEEDF"
+  }
+])
+
   //Ternario --> condicion ? seMuestra : noSeMuestra
   // condicion && seMuestra
 
@@ -56,44 +94,20 @@ const eliminarColaborador = (nombre) => {
   //Filter
 }
 
-  //Lista de equipos
-  const equipos = [
-    {
-      titulo: "Desarrollo",
-      colorPrimario: "#57C278",
-      colorSecundario: "#D9F7E9"
-    },
-    {
-      titulo: "Operaciones",
-      colorPrimario: "#82CFFA",
-      colorSecundario: "#E8F8FF"
-    },
-    {
-      titulo: "DevOps",
-      colorPrimario: "#E06B69",
-      colorSecundario: "#FDE7E8"
-    },
-    {
-      titulo: "Data Science",
-      colorPrimario: "#A6D157",
-      colorSecundario: "#F0F8E2"
-    },
-    {
-      titulo: "Legal",
-      colorPrimario: "#DB6EBF",
-      colorSecundario: "#FAE9F5"
-    },
-    {
-      titulo: "Finanzas",
-      colorPrimario: "#FFBA05",
-      colorSecundario: "#FFF5D9"
-    },
-    {
-      titulo: "Directiva",
-      colorPrimario: "#FF8A29",
-      colorSecundario: "#FFEEDF"
+// Actualizar color de equipo
+const actualizarColor = (color, titulo) => {
+  console.log("Actualizar: ", color, titulo)
+  const equiposActualizados = equipos.map((equipo) => {
+    if (equipo.titulo === titulo) {
+      equipo.colorPrimario = color
     }
-  ]
+
+    return equipo
+  })
+
+  actualizarEquipos(equiposActualizados)
+}
+
   return (
     <div>
       <Header />
@@ -113,6 +127,7 @@ const eliminarColaborador = (nombre) => {
           key={equipo.titulo}
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
+          actualizarColor={actualizarColor}
         />
         )
       }
